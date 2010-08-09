@@ -1,0 +1,8 @@
+
+This tool will provide access to your users to reset their own passwords.
+
+Password will be sent to personal emails.
+
+Users must registrate their emails first.
+
+Tested with AD 2008
