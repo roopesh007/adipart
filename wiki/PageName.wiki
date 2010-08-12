@@ -13,6 +13,5 @@ How this works?:
   * Passwords generated automatically based on windows policy.
 
 = Requirements =
-   * https enabled
    * php >= 4 ?
    * php-ldap ? (ldap_connect)
