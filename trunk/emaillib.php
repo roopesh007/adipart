@@ -46,8 +46,6 @@ function smtp($from, $namefrom, $to, $nameto, $subject, $message,$tipoEmail="tex
 
 	$headers  = "MIME-Version: 1.0" . $newLine;
 	$headers .= "Content-type: ".$tipoEmail."; charset=iso-8859-1" . $newLine;
-	//$headers .= "To: $nameto <$to>" . $newLine;
-	//$headers .= "From: $namefrom <$from>" . $newLine;
 
 	fputs($smtpConnect, "To: $nameto <$to>\r\nFrom: $namefrom <$from>\r\nSubject: $subject\r\n$headers\r\n\r\n$message\r\n.\r\n");
 	$smtpResponse = fgets($smtpConnect, 515);
@@ -61,8 +59,6 @@ function smtp($from, $namefrom, $to, $nameto, $subject, $message,$tipoEmail="tex
           return 1;
         else
 	  return 0;
-
-	//echo nl2br(var_export($logArray));
 
 }
 
