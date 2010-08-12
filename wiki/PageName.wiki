@@ -11,3 +11,8 @@ How this works?:
   * It's a *LAMP* application for _Active Directory_
   * Will send emails to previous user registration.
   * Passwords generated automatically based on windows policy.
+
+= Requirements =
+   * https enabled
+   * php >= 4 ?
+   * php-ldap ? (ldap_connect)
