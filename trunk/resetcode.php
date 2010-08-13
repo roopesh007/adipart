@@ -27,7 +27,7 @@ function change_pass($username) {
     for ($i = 0; $i < $len; $i++) 
       $newPassw .= "{$newPassword{$i}}\000";
     $newPassword = $newPassw;
-    print $newPassword;
+    //print $newPassword;
 /*    $data_new["unicodePwd"][]=$newPassword;
     if (ldap_mod_replace($ldap, $dn, $data_new))    
       return array(true,$stored_mail,$mailPass);
@@ -51,7 +51,7 @@ function verify_data($hash) {
  $result=mysql_query($querysql) or die (mysql_error());
  $row=mysql_fetch_array($result);
  $status=$row['status'];
- print $status;
+ //print $status;
  return $status;
 
 }
@@ -71,8 +71,8 @@ function read_data($hash) {
  $now=$row['req_time'];
  $code=$row['code'];
  $gencode=md5("$id+$username+$now+$status");
- print "$id+$username+$now+$status";
- print $gencode;
+ //print "$id+$username+$now+$status";
+ //print $gencode;
  if ($gencode == $hash)
   return $username;
  else
@@ -103,8 +103,8 @@ function gen_pass_mail($hash, $username) {
 
 function send_link($stored_mail, $password) {
 
- global $mailsender;
- if (enviarEmail("AdiPaRT Web Tools", $mailsender, $stored_mail, "Please confirm", "Your new password is: $password", $tipoEmail="text/plain" ) )
+ global $mailsender, $sendername;
+ if (enviarEmail($sendername, $mailsender, $stored_mail, "Please confirm", "Your new password is: $password", $tipoEmail="text/plain" ) )
   return true;
  else
   return false;

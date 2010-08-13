@@ -24,6 +24,7 @@ if (!(@$_SERVER["HTTPS"])) {
  $LOGO="monkey.jpg";
  $LOGO2="adipart.gif";
  $mailsender="information@mydomain.com";
+ $sendername="ADiPaRT Web Tools";
  $website="https://mydomain.com";
  
 //Debug Settings
