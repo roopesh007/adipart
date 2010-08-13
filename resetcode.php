@@ -2,7 +2,7 @@
 
 function change_pass($username) {
 
-  global $LDAPHOST, $LDAPPORT, $ldap, $LDAPADMIN, $LDAPADMINPASS, $LDAPDATAFIELD, $LDAPLOCALDOMAIN;
+  global $LDAPHOST, $LDAPPORT, $ldap, $LDAPADMIN, $LDAPADMINPASS, $LDAPDATAFIELD, $LDAPLOCALDOMAIN, $LDAPDOMAIN;
   if ($ldap)  {
     $bind = @ldap_bind($ldap,$LDAPADMIN."@".$LDAPLOCALDOMAIN,$LDAPADMINPASS);
     if (!($bind)) {
@@ -103,6 +103,7 @@ function gen_pass_mail($hash, $username) {
 
 function send_link($stored_mail, $password) {
 
+ global $mailsender;
  if (enviarEmail("AdiPaRT Web Tools", $mailsender, $stored_mail, "Please confirm", "Your new password is: $password", $tipoEmail="text/plain" ) )
   return true;
  else
