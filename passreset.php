@@ -38,24 +38,13 @@ function capture_mail($email) {
 }
 
 
-function footer() {
- print <<<MSG
- 
-<p class=minitext> ADiPaRT Web Tools 2010</p>
-</html>
-
-MSG;
-
-}
-
-
 setCss();
 
 headerSet();
 
 if ($ldap)  {
 
-  $bind = @ldap_bind($ldap,$username.$LDAPLOCALDOMAIN,$password);
+  $bind = @ldap_bind($ldap,$username."@".$LDAPLOCALDOMAIN,$password);
   if (!($bind)) {
     @ldap_close($ldap);
     die ('<p class="message">Your password is incorrect, please try again 
