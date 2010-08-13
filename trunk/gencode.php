@@ -25,9 +25,9 @@ else {
 
 function send_link($username,$stored_mail, $code) {
 
-global $mailsender, $website;
+global $mailsender, $website, $sendername;
 
- if (enviarEmail("ADiPaRT Web Tools", $mailsender, $stored_mail, "Please confirm", "Click Here $website/resetcode.php?code=$code", $tipoEmail="text/plain" ) )
+ if (enviarEmail($sendername, $mailsender, $stored_mail, "Please confirm", "Click Here $website/resetcode.php?code=$code", $tipoEmail="text/plain" ) )
   return true;
  else
   return false;
