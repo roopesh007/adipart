@@ -21,14 +21,6 @@
 else {
  
 
-function footer() {
- print <<<MSG
- 
-<p class=minitext> AdiPaRT Web Tools 2010 </p>
-</html>
-MSG;
-
-}
 
 
 function send_link($username,$stored_mail, $code) {
@@ -97,7 +89,7 @@ setCss();
 headerSet();
 
 if ($ldap)  {
-  $bind = @ldap_bind($ldap,$LDAPADMIN,$LDAPADMINPASS);
+  $bind = @ldap_bind($ldap,$LDAPADMIN."@".$LDAPLOCALDOMAIN,$LDAPADMINPASS);
   if (!($bind)) {
     @ldap_close($ldap);
     die ('<p class="message">Your password is incorrect, please try again 

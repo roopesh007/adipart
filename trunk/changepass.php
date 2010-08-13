@@ -1,13 +1,5 @@
 <?php
 require_once('configpage.php');
-function footer() {
- print <<<MSG
-
-<p class=minitext> AdiPaRT Web Tools 2010</p>
-
-MSG;
-
-}
 
 ?>
 
@@ -23,87 +15,7 @@ MSG;
 
 <script type="text/javascript" src="jquery.notifyBar.js"></script>
 
-<style type="text/css">
-
-fieldset {
-  width: 430px;
-  position: relative;
-  margin-left:auto;
-  margin-right:auto;
-  background: #F0F0F0;
-  border-color: #c0c0c0;
-}
-
-p.sansserif{
-  font: 16px;
-  font-family:Arial,Helvetica,sans-serif;
-
-}
-
-.textInput,textarea {
-  width: 250px;
-  font:bold 16px/16px Arial,Helvetica,sans-serif;
-  font-family: Arial,Helvetica,sans-serif;
-  background-color: #FFFFFF;
-  border: 1px solid #000;
-  border-color: #c0c0c0;
-}
-
-.textInput:hover {
-    border: 1px solid #000;
-    background: #BDEDFF;
-}
-
-.textInput_win {
-    width: 250px;
-    font:bold 16px/16px Arial,Helvetica,sans-serif;
-    font-family: Arial,Helvetica,sans-serif;
-    background-color: #FFFFFF;
-    border: 1px solid #000;
-    background: #BDEDFF;
-}
-
-.inputHighlighted {
-  width: 250px;
-  font:bold 16px/16px Arial,Helvetica,sans-serif;
-  font-family: Arial,Helvetica,sans-serif;
-  background-color: #FDD017;
-  color: #000;
-  border: 1px solid #000;
-}
-
-
- .recaptchatable .recaptcha_image_cell, #recaptcha_table {
-   background-color:#00A1E5 !important; //reCaptcha widget background color
- }
- 
- #recaptcha_table {
-   border-color: #033D55 !important; //reCaptcha widget border color
- }
- 
- #recaptcha_response_field {
-   border-color: #033D55 !important; //Text input field border color
-   background-color: #FFF !important; //Text input field background color
- }
-
-p.minitext {
-
-  font: 9px Arial,Helvetica,sans-serif;
-  font-family: Arial,Helvetica,sans-serif;
-  color: #707070;
-  text-align:center;
-
-}
-
-.custom {
-  font-size:20px;
-  font-family: "Times New Roman", Times, serif;
-  text-transform:uppercase;
-  background:#fff url(jq-test-pattern.gif) repeat-x top center;
-}
-
-
-</style>
+<link rel="stylesheet" href="adipart.css" type="text/css" media="screen" />
 
 <script>
 var RecaptchaOptions = {

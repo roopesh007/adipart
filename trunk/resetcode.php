@@ -2,9 +2,9 @@
 
 function change_pass($username) {
 
-  global $LDAPHOST, $LDAPPORT, $ldap, $LDAPADMIN, $LDAPADMINPASS, $LDAPDATAFIELD;
+  global $LDAPHOST, $LDAPPORT, $ldap, $LDAPADMIN, $LDAPADMINPASS, $LDAPDATAFIELD, $LDAPLOCALDOMAIN;
   if ($ldap)  {
-    $bind = @ldap_bind($ldap,$LDAPADMIN,$LDAPADMINPASS);
+    $bind = @ldap_bind($ldap,$LDAPADMIN."@".$LDAPLOCALDOMAIN,$LDAPADMINPASS);
     if (!($bind)) {
       @ldap_close($ldap);
       die ('<p class="message">Your password is incorrect, please try again 
