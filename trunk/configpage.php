@@ -15,6 +15,7 @@ if (!(@$_SERVER["HTTPS"])) {
  $dbuser="username";
  $dbpass="password";
  $dbname="ldappass";
+ $LDAPHOST="pfc.mydomain.local";
  $LDAPADMIN="ldapadmin";
  $LDAPADMINPASS="ldappass";
  $LDAPDATAFIELD="mypass";
@@ -34,7 +35,6 @@ if (!(@$_SERVER["HTTPS"])) {
 
 // NON SSL
 
- $LDAPHOST='mydomain.local';
  $ldap = ldap_connect($LDAPHOST) or die ('<p class="message">Error al conectar a LDAP');
 
 // SSL
