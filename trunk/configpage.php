@@ -83,6 +83,18 @@ p.minitext {
   text-align: center;
 
 }
+
+a.link{
+  font: 16px;
+  font-family:Arial,Helvetica,sans-serif;
+  color: red;
+  text-decoration: none;
+}
+
+a.link:hover{
+  color: blue;
+}
+
 </style>
 CSS;
 
@@ -138,6 +150,15 @@ function genPassword($pattern,$chardef = array(
         }
     }
     return $output;
+}
+
+function footer() {
+ print <<<MSG
+
+<p class="minitext"> AdiPaRT Web Tools 2010 </p>
+
+MSG;
+
 }
 
 
