@@ -25,7 +25,7 @@
 else {
  
 function capture_mail($email) {
- global $ldap, $dn;
+ global $ldap, $dn, $LDAPDATAFIELD;
  $data_new[$LDAPDATAFIELD][]=$email;
  if (ldap_mod_add($ldap, $dn, $data_new)) {
   print "<p class=\"message\">Your Email: $email , was successfuly  stored, Thank you! <br>";

@@ -21,8 +21,8 @@ if (!(@$_SERVER["HTTPS"])) {
  $LDAPDATAFIELD="mypass";
  $LDAPDOMAIN="dc=mydomain,dc=local";
  $LDAPLOCALDOMAIN="mydomain.local";
- $LOGO="monkey.jpg";
- $LOGO2="adipart.gif";
+ $LOGO="adipart_logo.png";
+ $LOGO2="adipart_banner.png";
  $mailsender="information@mydomain.com";
  $sendername="ADiPaRT Web Tools";
  $website="https://mydomain.com";
