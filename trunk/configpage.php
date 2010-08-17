@@ -12,9 +12,9 @@ if (!(@$_SERVER["HTTPS"])) {
 
 
  $dbserver="localhost";
- $dbuser="username";
- $dbpass="password";
- $dbname="ldappass";
+ $dbuser="root";
+ $dbpass="sk4p0nkm0d";
+ $dbname="REQUESTS";
  $LDAPHOST="pfc.mydomain.local";
  $LDAPADMIN="ldapadmin";
  $LDAPADMINPASS="ldappass";
