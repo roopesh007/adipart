@@ -19,7 +19,7 @@ function change_pass($username) {
       die ('<p class="message">Error occurred, please verify your user , <a href="javascript:history.back()">Go Back</a>');
     }
     $dn=$info[0]["dn"];
-    $stored_mail=$info[0][$LDAPDATAFIELD][0] or die ("We could not get your info, please contact Support!");
+    $stored_mail=$info[0][$LDAPDATAFIELD][0] or die ('<p class="message">We could not get your info, please contact Support!');
     $newPassw=genPassword("xxx0yY0yY");
     $mailPass=$newPassw;
     $newPassword="\"$newPassw\"";
@@ -45,8 +45,8 @@ function change_pass($username) {
 function verify_data($hash) {
 
  global $dbserver,$dbuser,$dbpass, $dbname ;
- $con=mysql_connect($dbserver,$dbuser,$dbpass) or die ("Can't connect to DB");
- mysql_select_db($dbname) or die ("Can't open db");
+ $con=mysql_connect($dbserver,$dbuser,$dbpass) or die ('<p class="message">Can\'t connect to DB');
+ mysql_select_db($dbname) or die ('<p class="message">Can\'t open db');
  $querysql="SELECT status from REQUESTS WHERE code='$hash'";
  $result=mysql_query($querysql) or die (mysql_error());
  $row=mysql_fetch_array($result);
@@ -60,8 +60,8 @@ function verify_data($hash) {
 function read_data($hash) {
 
  global $dbserver,$dbuser,$dbpass, $dbname ;
- $con=mysql_connect($dbserver,$dbuser,$dbpass) or die ("Can't connect to DB");
- mysql_select_db($dbname) or die ("Can't open db");
+ $con=mysql_connect($dbserver,$dbuser,$dbpass) or die ('<p class="message">Can\'t connect to DB');
+ mysql_select_db($dbname) or die ('<p class="message">Can\'t open db');
  $querysql="SELECT * from REQUESTS WHERE code='$hash'";
  $result=mysql_query($querysql) or die (mysql_error());
  $row=mysql_fetch_array($result);
@@ -84,8 +84,8 @@ function read_data($hash) {
 function gen_pass_mail($hash, $username) {
 
   global $dbserver,$dbuser,$dbpass, $dbname ;
-  $con=mysql_connect($dbserver,$dbuser,$dbpass) or die ("Can't connect to DB");
-  mysql_select_db($dbname) or die ("Can't open db");
+  $con=mysql_connect($dbserver,$dbuser,$dbpass) or die ('<p class="message">Can\'t connect to DB');
+  mysql_select_db($dbname) or die ('<p class="message">Can\'t open db');
   $result=change_pass($username);
   if ($result[0]) {
     $updatesql="UPDATE REQUESTS SET status='generated' where code='$hash'";
@@ -95,7 +95,7 @@ function gen_pass_mail($hash, $username) {
   }
   else {
     mysql_close();
-    die ('<p class="message>Error, I could not finish my work, please contact Support"');
+    die ('<p class="message">Error, I could not finish my work, please contact Support');
   }
 
 }
@@ -134,15 +134,16 @@ if (count ($_GET) == 1) {
 
   require_once('configpage.php');
   require_once('emaillib.php');
-
-  $code=$_GET['code'] or die ("Error");
-  check_code($code) or die ("Ooops");
+  setCss();
+  headerSet();
+  $code=$_GET['code'] or die ('<p class="message">Error');
+  check_code($code) or die ('<p class="message">Ooops');
   if (verify_data($code) == "pending" ) {
     $username=read_data($code);
-    print $username;
+    //print $username;
     if ($username != "Error") {
       if (gen_pass_mail($code, $username))
-        print '<p class="message">OK';
+        print '<p class="message">Your password has been changed and sent, please check your email';
     }
     else die ('<p class="message">Error, can\'t get your email, please contact the Administrator');
   }
