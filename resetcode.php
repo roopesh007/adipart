@@ -24,15 +24,15 @@ function change_pass($username) {
     $mailPass=$newPassw;
     $newPassword="\"$newPassw\"";
     $len = strlen($newPassword);
+    $newPass="";
     for ($i = 0; $i < $len; $i++) 
-      $newPassw .= "{$newPassword{$i}}\000";
-    $newPassword = $newPassw;
-    //print $newPassword;
-/*    $data_new["unicodePwd"][]=$newPassword;
+      $newPass .= "{$newPassword{$i}}\000";
+    $newPassword = $newPass;
+    $data_new["unicodePwd"][]=$newPassword;
     if (ldap_mod_replace($ldap, $dn, $data_new))    
       return array(true,$stored_mail,$mailPass);
     else
-      return array (false,0,0);*/
+      return array (false,100,100);
     return array(true,$stored_mail,$mailPass);
   } 
   else 
@@ -95,7 +95,7 @@ function gen_pass_mail($hash, $username) {
   }
   else {
     mysql_close();
-    die ('<p class="message">Error, I could not finish my work, please contact Support');
+    die ('<p class="message">Error, I could not finish my work, please contact Support, Error '.$result[1]);
   }
 
 }
