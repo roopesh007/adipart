@@ -89,7 +89,7 @@ centerField();
 <p class="minitext"> Please fill out the following field for human verification </p>
 <?php
       require_once('recaptchalib.php');
-      $publickey = "6LclB7wSAAAAAESgWAGrQMwfsq8bLP0l5DTPfOqq"; // you got this from the signup page
+      $publickey = $recaptcha_pub; // you got this from the signup page
       echo recaptcha_get_html($publickey)."<br>";
     ?>
 

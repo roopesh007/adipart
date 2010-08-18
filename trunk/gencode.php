@@ -3,7 +3,7 @@
   require_once('configpage.php');
   $username=@$_POST['username'] or die("Error Unkown");
   require_once('recaptchalib.php');
-  $privatekey = "6LclB7wSAAAAAKUtbYdzV6CzNq3jOvAgZMitsYHc";
+  $privatekey = $recaptcha_priv;
   $resp = recaptcha_check_answer ($privatekey,
                                 $_SERVER["REMOTE_ADDR"],
                                 $_POST["recaptcha_challenge_field"],
