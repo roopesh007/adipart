@@ -51,7 +51,6 @@ function verify_data($hash) {
  $result=mysql_query($querysql) or die (mysql_error());
  $row=mysql_fetch_array($result);
  $status=$row['status'];
- //print $status;
  return $status;
 
 }
@@ -71,8 +70,6 @@ function read_data($hash) {
  $now=$row['req_time'];
  $code=$row['code'];
  $gencode=md5("$id+$username+$now+$status");
- //print "$id+$username+$now+$status";
- //print $gencode;
  if ($gencode == $hash)
   return $username;
  else
@@ -95,7 +92,10 @@ function gen_pass_mail($hash, $username) {
   }
   else {
     mysql_close();
-    die ('<p class="message">Error, I could not finish my work, please contact Support, Error '.$result[1]);
+    die ('<p class="message">Yo Mama!!,  I could not finish my work, 
+          please <a class="link" href="javascript:location.reload()">retry</a> or
+          if the error persists, please contact Support, Error code:'.$result[1]);
+
   }
 
 }
