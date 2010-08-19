@@ -10,7 +10,7 @@ require_once('configpage.php');
 <head>
 <link rel="stylesheet" href="jquery.notifyBar.css" type="text/css" media="screen" />
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" charset="utf-8">
+<script src="jquery.min.js" type="text/javascript" charset="utf-8">
 </script>
 
 <script type="text/javascript" src="jquery.notifyBar.js"></script>
