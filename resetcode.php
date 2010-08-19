@@ -103,8 +103,15 @@ function gen_pass_mail($hash, $username) {
 
 function send_link($stored_mail, $password) {
 
+ $message="
+           Your new password is: $password
+
+           This change may take up to 5 minutes, please be patient
+
+           Thanks";
+
  global $mailsender, $sendername;
- if (enviarEmail($sendername, $mailsender, $stored_mail, "Please confirm", "Your new password is: $password", $tipoEmail="text/plain" ) )
+ if (enviarEmail($sendername, $mailsender, $stored_mail, $message, $tipoEmail="text/plain" ) )
   return true;
  else
   return false;
