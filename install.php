@@ -1,9 +1,38 @@
 <?php
 
+function validate_perms () {
+ 
+  $ourFileName="configpage.php";
+    $ourFileHandle = @fopen($ourFileName, 'w');
+  fclose($ourFileHandle);
+  return true;
+  
+}
+
+
+function performinstall() {
+
+
+}
+
 if (($_GET['dbhost']) && ($_GET['dbname']) && ($_GET['dbuser']) && ($_GET['dbpass']) && ($_GET['ldaphost'])
     && ($_GET['ldapdomain']) && ($_GET['ldaplocal']) && ($_GET['ldapadmin']) && ($_GET['ldappass'])  
     && ($_GET['ldapfield']) && ($_GET['smtphost']) && ($_GET['email']) && ($_GET['webpage']) ) {
   print "OK";
+    foreach ($_GET as $field => $value) {
+    $htmlvalue[]="value=$value";
+    if ($value) {
+      $hasError[]="ok";
+      //print  $field . " has " . $value . "<br>";
+    }
+    else {
+      $hasError[]="Error";
+   //   print $field." is empty <br>";
+    }
+  }
+
+  if (!(validate_perms())) {print "Error";}
+  performinstall();
 }
 else { 
   foreach ($_GET as $field => $value) {
@@ -19,7 +48,7 @@ else {
   } 
 }
 
-function printForm ($hasError) {
+function printForm () {
 global $hasError, $_GET, $htmlvalue;
 print <<< FORM
 
@@ -97,5 +126,5 @@ p.error{
 FORM;
 }
 
-printForm(hasErrors);
+printForm();
 ?>
