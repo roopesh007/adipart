@@ -2,7 +2,7 @@
 
 function validate_perms () {
  
-  $ourFileName = "configpage.php";
+  $ourFileName = "include/configpage.php";
   $ourFileHandle = @fopen($ourFileName, 'w+');
   if ($ourFileHandle)  {
     fclose($ourFileHandle);
@@ -14,7 +14,7 @@ function validate_perms () {
 
 function validate_read () {
  
-  $ourFileName = "configpage.php.sample";
+  $ourFileName = "include/configpage.php.sample";
   $ourFileHandle = @fopen($ourFileName, 'r');
   if ($ourFileHandle)  {
     fclose($ourFileHandle);
@@ -65,7 +65,7 @@ else {
 function printForm () {
 global $hasError, $_GET, $htmlvalue;
 
-if (!(validate_perms())) {print '<p class="perm">Error can\'t write setup file</p>';}
+if (!(validate_perms())) {print '<p class="perm">Error can\'t write setup file, make sure you have wirte permissions in config dir';}
 if (!(validate_read())) {print '<p class="warning">Error can\'t read the sample setup file</p>';}
 
 
@@ -95,7 +95,7 @@ p.error{
   color: red;
   text-align: right;
   background-color: #FFBABA;
-  background-image: url('dialog-error.png');
+  background-image: url('images/dialog-error.png');
 
 }
 
@@ -120,20 +120,20 @@ p.perm{
   font-family:Arial,Helvetica,sans-serif;
   color: red;
   background-color: #FFBABA;
-  background-image: url('dialog-error.png');
+  background-image: url('images/dialog-error.png');
   text-align: left;
 }
 
 p.success {
   color: #4F8A10;
   background-color: #DFF2BF;
-  background-image:url('success.png');
+  background-image:url('images/success.png');
 }
 
 p.warning { 
   color: #9F6000;
   background-color: #FEEFB3;
-  background-image: url('dialog-warning.png');
+  background-image: url('images/dialog-warning.png');
   text-align: left;
 }
 

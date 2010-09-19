@@ -139,8 +139,8 @@ function check_code($hash) {
 
 if (count ($_GET) == 1) { 
 
-  require_once('configpage.php');
-  require_once('emaillib.php');
+  require_once('include/configpage.php');
+  require_once('include/emaillib.php');
   setCss();
   headerSet();
   $code=$_GET['code'] or die ('<p class="message">Error');

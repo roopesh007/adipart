@@ -1,13 +1,13 @@
 <?php
   
-  require_once('configpage.php');
+  require_once('include/configpage.php');
 
   $username=@$_POST['username'] or die ("Unknown Error!");
   $password=@$_POST['password'] or die ("Unknown Error!");
   $email=@$_POST['email'] or die ("Unknown Error!");
 
 
-  require_once('recaptchalib.php'); 
+  require_once('include/recaptchalib.php'); 
   $privatekey = $recaptcha_priv;
   $resp = recaptcha_check_answer ($privatekey,
                                 $_SERVER["REMOTE_ADDR"],

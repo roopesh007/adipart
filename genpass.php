@@ -1,6 +1,6 @@
 <?php
 
-require_once("configpage.php");
+require_once("include/configpage.php");
 
 ?>
 <html>
@@ -71,7 +71,7 @@ centerField();
 </table>
 <p class="minitext"> Please fill out the following field for human verification </p>
 <?php
-      require_once('recaptchalib.php');
+      require_once('include/recaptchalib.php');
       $publickey = recaptcha_pub; // you got this from the signup page
       echo recaptcha_get_html($publickey)."<br>";
     ?>

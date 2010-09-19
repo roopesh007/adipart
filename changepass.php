@@ -1,5 +1,5 @@
 <?php
-require_once('configpage.php');
+require_once('include/configpage.php');
 
 ?>
 
@@ -8,14 +8,14 @@ require_once('configpage.php');
 
 
 <head>
-<link rel="stylesheet" href="jquery.notifyBar.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/jquery.notifyBar.css" type="text/css" media="screen" />
 
 <script src="jquery.min.js" type="text/javascript" charset="utf-8">
 </script>
 
 <script type="text/javascript" src="jquery.notifyBar.js"></script>
 
-<link rel="stylesheet" href="adipart.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/adipart.css" type="text/css" media="screen" />
 
 <script>
 var RecaptchaOptions = {
@@ -88,7 +88,7 @@ centerField();
 </table>
 <p class="minitext"> Please fill out the following field for human verification </p>
 <?php
-      require_once('recaptchalib.php');
+      require_once('include/recaptchalib.php');
       $publickey = $recaptcha_pub; // you got this from the signup page
       echo recaptcha_get_html($publickey)."<br>";
     ?>
