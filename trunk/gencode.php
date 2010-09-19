@@ -1,8 +1,9 @@
 <?php
 
-  require_once('configpage.php');
+  require_once('include/configpage.php');
+  require_once('include/emaillib.php');
   $username=@$_POST['username'] or die("Error Unkown");
-  require_once('recaptchalib.php');
+  require_once('incliude/recaptchalib.php');
   $privatekey = $recaptcha_priv;
   $resp = recaptcha_check_answer ($privatekey,
                                 $_SERVER["REMOTE_ADDR"],
@@ -82,8 +83,6 @@ function generate_code($username) {
  
 }
 
-require_once('emaillib.php');
-require_once('configpage.php');
 
 setCss();
 headerSet();
