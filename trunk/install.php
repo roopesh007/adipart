@@ -2,13 +2,27 @@
 
 function validate_perms () {
  
-  $ourFileName="configpage.php";
-    $ourFileHandle = @fopen($ourFileName, 'w');
-  fclose($ourFileHandle);
-  return true;
+  $ourFileName = "configpage.php";
+  $ourFileHandle = @fopen($ourFileName, 'w+');
+  if ($ourFileHandle)  {
+    fclose($ourFileHandle);
+    return true;
+  }
+  return false;
   
 }
 
+function validate_read () {
+ 
+  $ourFileName = "configpage.php.sample";
+  $ourFileHandle = @fopen($ourFileName, 'r');
+  if ($ourFileHandle)  {
+    fclose($ourFileHandle);
+    return true;
+  }
+  return false;
+  
+}
 
 function performinstall() {
 
@@ -22,7 +36,7 @@ if (($_GET['dbhost']) && ($_GET['dbname']) && ($_GET['dbuser']) && ($_GET['dbpas
     foreach ($_GET as $field => $value) {
     $htmlvalue[]="value=$value";
     if ($value) {
-      $hasError[]="ok";
+      $hasError[]="success";
       //print  $field . " has " . $value . "<br>";
     }
     else {
@@ -31,14 +45,14 @@ if (($_GET['dbhost']) && ($_GET['dbname']) && ($_GET['dbuser']) && ($_GET['dbpas
     }
   }
 
-  if (!(validate_perms())) {print "Error";}
+  if (!(validate_perms())) {print "Error, I have no write rights on folder, fix this or install manually";}
   performinstall();
 }
 else { 
   foreach ($_GET as $field => $value) {
     $htmlvalue[]="value=$value";
     if ($value) {
-      $hasError[]="ok";
+      $hasError[]="success";
       //print  $field . " has " . $value . "<br>";
     }
     else {
@@ -50,7 +64,13 @@ else {
 
 function printForm () {
 global $hasError, $_GET, $htmlvalue;
+
+if (!(validate_perms())) {print '<p class="perm">Error can\'t write setup file</p>';}
+if (!(validate_read())) {print '<p class="warning">Error can\'t read the sample setup file</p>';}
+
+
 print <<< FORM
+
 
 <html>
 
@@ -74,7 +94,50 @@ p.error{
   font-family:Arial,Helvetica,sans-serif;
   color: red;
   text-align: right;
+  background-color: #FFBABA;
+  background-image: url('dialog-error.png');
+
 }
+
+.info, .success, .warning, .validation, .perm {
+border: 1px solid;
+margin: 1px 0px;
+padding:1px 1px 1px 30px;
+background-repeat: no-repeat;
+background-position: 10px center;
+}
+
+.error {
+border: 1px solid;
+margin: 1px 0px;
+padding:1px 1px 1px 30px;
+background-repeat: no-repeat;
+background-position: 10px center;
+}
+
+p.perm{
+  font: 16px;
+  font-family:Arial,Helvetica,sans-serif;
+  color: red;
+  background-color: #FFBABA;
+  background-image: url('dialog-error.png');
+  text-align: left;
+}
+
+p.success {
+  color: #4F8A10;
+  background-color: #DFF2BF;
+  background-image:url('success.png');
+}
+
+p.warning { 
+  color: #9F6000;
+  background-color: #FEEFB3;
+  background-image: url('dialog-warning.png');
+  text-align: left;
+}
+
+
 </style>
 
 </head>
