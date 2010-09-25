@@ -65,82 +65,20 @@ else {
 function printForm () {
 global $hasError, $_GET, $htmlvalue;
 
-if (!(validate_perms())) {print '<p class="perm">Error can\'t write setup file, make sure you have wirte permissions in config dir';}
-if (!(validate_read())) {print '<p class="warning">Error can\'t read the sample setup file</p>';}
-
-
-print <<< FORM
-
+print <<< HEAD
 
 <html>
-
 <head>
-<style>
-p{
-  font: 16px;
-  font-family:Arial,Helvetica,sans-serif;
-  color: black;
-  text-align: right;
-}
-p.ok{
-  font: 16px;
-  font-family:Arial,Helvetica,sans-serif;
-  color: black;
-  text-align: right;
-}
-
-p.error{
-  font: 16px;
-  font-family:Arial,Helvetica,sans-serif;
-  color: red;
-  text-align: right;
-  background-color: #FFBABA;
-  background-image: url('images/dialog-error.png');
-
-}
-
-.info, .success, .warning, .validation, .perm {
-border: 1px solid;
-margin: 1px 0px;
-padding:1px 1px 1px 30px;
-background-repeat: no-repeat;
-background-position: 10px center;
-}
-
-.error {
-border: 1px solid;
-margin: 1px 0px;
-padding:1px 1px 1px 30px;
-background-repeat: no-repeat;
-background-position: 10px center;
-}
-
-p.perm{
-  font: 16px;
-  font-family:Arial,Helvetica,sans-serif;
-  color: red;
-  background-color: #FFBABA;
-  background-image: url('images/dialog-error.png');
-  text-align: left;
-}
-
-p.success {
-  color: #4F8A10;
-  background-color: #DFF2BF;
-  background-image:url('images/success.png');
-}
-
-p.warning { 
-  color: #9F6000;
-  background-color: #FEEFB3;
-  background-image: url('images/dialog-warning.png');
-  text-align: left;
-}
-
-
-</style>
-
+<link rel="stylesheet" href="css/install.css" type="text/css" media="screen" />
+<div id="header">
+</div>
 </head>
+HEAD;
+
+if (!(validate_perms())) {print '<p class="perm">Error can\'t write setup file, make sure you have write permissions in config dir';}
+if (!(validate_read())) {print '<p class="warning">Error can\'t read the sample setup file</p>';}
+
+print <<< FORM
 <form>
 <table>
  <tr>
@@ -187,6 +125,8 @@ p.warning {
 </form>
 </html>
 FORM;
+
+
 }
 
 printForm();
