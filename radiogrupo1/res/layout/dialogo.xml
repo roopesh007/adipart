@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/RelativeLayout01"
+    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="5px">
+
+    <ImageView android:id="@+id/logo" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:src="@drawable/log" android:paddingLeft="30px" android:paddingRight="20px" android:paddingTop="20px" android:paddingBottom="20px"/>
+
+    
+
+    <Button android:text="@string/closeDialog" android:id="@+id/closeDialog" android:layout_below="@id/logo" android:layout_height="wrap_content" android:singleLine="false" android:layout_width="150px" android:layout_marginLeft="75px"></Button><TextView android:id="@+id/TextView02" android:layout_below="@id/closeDialog" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingBottom="20px" android:paddingTop="30px" android:paddingRight="10px" android:paddingLeft="50px" android:text="Diseñado y desarrollado por @chitopunk &amp; @sebastiangtz"></TextView>
+        
+
+
+
+</RelativeLayout>
