@@ -138,11 +138,11 @@ public class radiogrupo extends Activity {
     	
     	switch (Global.StationIndex) {
     	  
-     	  case 1: PATH_TO_FILE = "http://201.151.158.7:88/broadwave.mp3?src=1&kbps=64";break;
-    	  case 2: PATH_TO_FILE = "http://201.151.158.7:88/broadwave.mp3?src=2&kbps=64";break;
-    	  case 3: PATH_TO_FILE = "http://201.151.158.7:88/broadwave.mp3?src=3&kbps=64";break;
-    	  case 4: PATH_TO_FILE = "http://201.151.158.6:88/broadwave.mp3?src=1&kbps=64";break;
-    	  case 5: PATH_TO_FILE = "http://201.151.158.5:88/broadwave.mp3?src=1&kbps=64";break;
+     	  case 1: PATH_TO_FILE = "http://201.151.158.7:88/broadwave.mp3?src=1&kbps=24";break;
+    	  case 2: PATH_TO_FILE = "http://201.151.158.7:88/broadwave.mp3?src=2&kbps=24";break;
+    	  case 3: PATH_TO_FILE = "http://201.151.158.7:88/broadwave.mp3?src=3&kbps=24";break;
+    	  case 4: PATH_TO_FILE = "http://201.151.158.6:88/broadwave.mp3?src=1&kbps=24";break;
+    	  case 5: PATH_TO_FILE = "http://201.151.158.5:88/broadwave.mp3?src=1&kbps=24";break;
     	  default: 	ready=false; textState.setText("Primero Seleciona la Estación" );break;
     	} 
 
